@@ -1,9 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import Header from '../../components/Header'
+import Search from '../../components/Search'
 
 class HomePage extends Component {
   render () {
     return (
-      <h1>Home Page</h1>
+      <Fragment>
+        <Header text='BKD' />
+        <Search />
+      </Fragment>
     )
   }
 }

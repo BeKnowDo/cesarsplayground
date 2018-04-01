@@ -9,8 +9,8 @@ let users = []
 
 // Create a user object until we reach our userCount argument
 for (let currentIndex = 0; currentIndex < usersCount; currentIndex++) {
-  let firstName = faker.name.firstName()
-  let lastName = faker.name.lastName()
+  let firstname = faker.name.firstName()
+  let lastname = faker.name.lastName()
   let salary = Math.floor(Math.random() * (300000 - 24000 + 1)) + 24000
   let employment = faker.random.boolean()
   let ssn = Math.floor(Math.random() * (999999999 - 111111111 + 1)) + 111111111
@@ -31,8 +31,8 @@ for (let currentIndex = 0; currentIndex < usersCount; currentIndex++) {
   }
 
   let user = {
-    firstName,
-    lastName,
+    firstname,
+    lastname,
     ssn,
     address,
     salary,

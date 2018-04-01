@@ -1,12 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import scHeader from './header-styles'
+import propTypes from 'prop-types'
+import ScHeader from './header-styles'
 
-const Header = () => {
+const Header = props => {
   return (
-    <scHeader>
-      { this.props.text }
-    </scHeader>
+    <ScHeader>
+      { props.text }
+    </ScHeader>
   )
 }
 
@@ -14,8 +14,8 @@ Header.defaultProps = {
   text: 'Hi...this is a header section'
 }
 
-Header.PropTypes = {
-  text: PropTypes.string
+Header.propTypes = {
+  text: propTypes.string
 }
 
 export default Header

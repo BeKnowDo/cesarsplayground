@@ -16,7 +16,7 @@ const shadows = {
 }
 
 const borders = {
-  grey: '1px solid rgba(3,3,3,.2)',
+  grey: '1px solid rgba(3,3,3,.1)',
   focus: '1px solid rgba(3,3,3,.6)',
   error: `'border-color:' ${colors.red}`
 }
@@ -28,9 +28,15 @@ const typography = {
   fontFamily: 'Calibri, Helvetica, Arial, sans-serif'
 }
 
+const padding = {
+  inputs: '8px',
+  button: '8px'
+}
+
 export {
   colors,
   typography,
   borders,
-  shadows
+  shadows,
+  padding
 }

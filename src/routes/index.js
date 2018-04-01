@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import Home from '../pages/home'
 import Disclaimer from '../pages/disclaimer'
+import NotFound from '../pages/404'
 
 const routes = [
   {
@@ -12,6 +13,9 @@ const routes = [
   {
     path: '/disclaimer',
     component: Disclaimer
+  },
+  {
+    component: NotFound
   }
 ]
 
