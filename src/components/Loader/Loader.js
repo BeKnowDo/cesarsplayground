@@ -1,6 +1,5 @@
-import ScLoader from './loader-styles'
-
 import React, { Component } from 'react'
+import ScLoader from './loader-styles'
 
 class Loader extends Component {
   render () {

@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import ScButton from './button-styles'
 
 const Button = props => {
@@ -9,7 +9,7 @@ const Button = props => {
 }
 
 Button.propTypes = {
-  text: propTypes.string
+  text: PropTypes.string
 }
 
 Button.defaultProps = {

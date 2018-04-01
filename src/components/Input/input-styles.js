@@ -6,6 +6,15 @@ const ScInput = styled.input`
   border-radius: 4px;
   color: ${colors.black};
   padding: ${padding.inputs};
+  width: 100%;
+  box-sizing: border-box;
+  transition: border .2s ease-in;
+  
+  &:focus {
+    outline: none;
+    border: ${borders.focus};
+    transition: border .2s ease-out;
+  }
 `
 
 export default ScInput

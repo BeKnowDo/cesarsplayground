@@ -6,7 +6,7 @@ class HomePage extends Component {
   render () {
     return (
       <Fragment>
-        <Header text='BKD' />
+        <Header text='Search Users' />
         <Search />
       </Fragment>
     )

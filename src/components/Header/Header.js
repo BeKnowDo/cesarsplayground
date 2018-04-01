@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import ScHeader from './header-styles'
 
 const Header = props => {
@@ -15,7 +15,7 @@ Header.defaultProps = {
 }
 
 Header.propTypes = {
-  text: propTypes.string
+  text: PropTypes.string
 }
 
 export default Header
