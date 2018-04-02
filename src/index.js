@@ -1,12 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
-import registerServiceWorker from './registerServiceWorker'
-
 import { injectGlobal } from 'styled-components'
+
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import storeConfig from './store'
 import { typography } from './styles/variables'
 
 import { routes, RouteComponent } from './routes'
+import registerServiceWorker from './registerServiceWorker'
 
 injectGlobal`
   body {
@@ -14,15 +16,19 @@ injectGlobal`
   }
 `
 
+const store = storeConfig()
+
 ReactDOM.render((
-  <Router>
-    <Switch>
-      {
-        routes.map((route, key) => {
-          return <RouteComponent key={key} {...route} />
-        })
-      }
-    </Switch>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Switch>
+        {
+          routes.map((route, key) => {
+            return <RouteComponent key={key} {...route} />
+          })
+        }
+      </Switch>
+    </Router>
+  </Provider>
 ), document.getElementById('root'))
 registerServiceWorker()

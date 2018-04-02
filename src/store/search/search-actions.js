@@ -3,18 +3,10 @@ import fetch from 'cross-fetch'
 import endpoints from '../../endpoints'
 
 // Search action creator
-function search ( { queries = []}, {}, dispatch) {
-  
+export function search (queries) {
   console.log(queries)
-
-  fetch.
-
-  
-  
-  dispatch({
+  return {
     type: actionTypes.SEARCH,
-    queries
-  })
+    queries: queries
+  }
 }
-
-export default { search }
