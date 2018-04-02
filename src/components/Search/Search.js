@@ -1,6 +1,4 @@
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import React, { PureComponent } from 'react'
 
 // Action creators
 import * as searchActionCreator from '../../store/search/search-actions'
@@ -9,54 +7,7 @@ import Input from '../Input'
 import Button from '../Button'
 import Label from '../Label'
 
-console.log(searchActionCreator)
-class Search extends Component {
-  constructor (props) {
-    super(props)
-    const { dispatch } = props
-
-    // Bind action creators
-    this.boundActionCreators = bindActionCreators(searchActionCreator, dispatch)
-  }
-  submit (e, props) {
-    e.preventDefault()
-    console.log(props)
-    // let { dispatch } = this.props
-
-    // console.log(dispatch)
-    // Prepare our payload
-    // const key = e.target.id
-    // const value = e.target.value
-    // const searchField = {}
-    // searchField[key] = value
-    // let { dispatch } = this.props
-
-    // // Pass payload to action
-    // let search = searchActionCreator.search(searchField, dispatch)
-
-    // console.log(search)
-
-    // // Call dispatch
-    // dispatch(search)
-  }
-
-  handleChange (e) {
-    // Prepare our payload
-    const key = e.target.id
-    const value = e.target.value
-    const searchField = {}
-    searchField[key] = value
-    let { dispatch } = this.props
-
-    // Pass payload to action
-    let search = searchActionCreator.search(searchField, dispatch)
-
-    console.log(search)
-
-    // Call dispatch
-    dispatch(search)
-  }
-
+class Search extends PureComponent {
   render () {
     return (
       <ScForm onSubmit={this.submit} >
@@ -74,4 +25,4 @@ class Search extends Component {
   }
 }
 
-export default connect()(Search)
+export default Search
