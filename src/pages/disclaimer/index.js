@@ -1,2 +1,2 @@
-import Disclaimer from './disclaimer'
+import Disclaimer from './Disclaimer'
 export default Disclaimer

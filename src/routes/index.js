@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Home from '../pages/home'
-import Disclaimer from '../pages/disclaimer'
+import Home from '../pages/Home'
+import Disclaimer from '../pages/Disclaimer'
 import NotFound from '../pages/404'
 
 const routes = [
