@@ -9,7 +9,7 @@ const search = (state = defaultState, action) => {
     case actionTypes.SEARCH:
       return {
         ...state,
-        ...action.form
+        form: {...action.form}
       }
     default:
       return state

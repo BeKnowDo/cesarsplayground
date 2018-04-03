@@ -17,7 +17,6 @@ class Search extends PureComponent {
           />
           <Input
             id='firstName'
-            name='firstName'
             placeholder='First Name'
             onChange={this.props.handleChange}
           />
@@ -29,7 +28,6 @@ class Search extends PureComponent {
           />
           <Input
             id='lastName'
-            name='lastName'
             placeholder='Last Name'
             onChange={this.props.handleChange}
           />
