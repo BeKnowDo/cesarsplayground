@@ -38,7 +38,6 @@ router.get('/users', (req, res) => {
 
   // log(users.length)
   res.json(users)
-  
 })
 
 module.exports = router

@@ -1,18 +1,21 @@
 import { actionTypes } from '../action-types'
 
 const defaultState = {
-  queries: []
+  form: {}
 }
 
-const search = (state = defaultState, action) => {
+const form = (state = defaultState, action) => {
   switch (action.type) {
-    case actionTypes.search:
+    case actionTypes.FORM:
       return {
         ...state,
-        search
+        form: {
+          ...state.form,
+          ...action.form
+        }
       }
     default:
       return state
   }
 }
-export default search
+export default form

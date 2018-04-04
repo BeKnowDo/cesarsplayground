@@ -2,11 +2,19 @@ import { actionTypes } from '../action-types'
 import fetch from 'cross-fetch'
 import endpoints from '../../endpoints'
 
-// Search action creator
-export function search (queries) {
-  console.log(queries)
-  return {
-    type: actionTypes.SEARCH,
-    queries: queries
-  }
+// Form state action creator
+export function captureFormState (query, dispatch) {
+  dispatch({
+    type: actionTypes.FORM,
+    form: {...query}
+  })
+}
+
+// Form submission
+export function sendForm (form, dispatch) {
+  fetch(endpoints.users)
+    .then(data => data.json())
+    .then(data => {
+      console.log(data)
+    })
 }

@@ -1,5 +1,5 @@
 const endpoints = {
-  search: '/search?'
+  users: '/users'
 }
 
 export default endpoints

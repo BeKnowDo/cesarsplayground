@@ -3,7 +3,7 @@
 
 export const actionTypes = {
   LOADER: 'LOADER',
-  SEARCH: 'SEARCH',
+  FORM: 'FORM',
   ERROR: 'ERROR',
   NO_RESULTS: 'NO_RESULTS'
 }
