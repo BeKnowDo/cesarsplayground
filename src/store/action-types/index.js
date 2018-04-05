@@ -5,5 +5,6 @@ export const actionTypes = {
   LOADER: 'LOADER',
   FORM: 'FORM',
   ERROR: 'ERROR',
-  NO_RESULTS: 'NO_RESULTS'
+  NO_RESULTS: 'NO_RESULTS',
+  RESULTS: 'RESULTS'
 }

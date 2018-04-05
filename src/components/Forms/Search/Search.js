@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 
 // Action creators
 import ScForm from './search-styles'
-import Input from '../Input'
-import Button from '../Button'
-import Label from '../Label'
+import Input from '../../Input'
+import Button from '../../Button'
+import Label from '../../Label'
 
 class Search extends PureComponent {
   render () {

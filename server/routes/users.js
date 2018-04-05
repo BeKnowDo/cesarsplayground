@@ -17,15 +17,17 @@ router.post('/users', (req, res) => {
   let queries = {}
   queries = Object.assign(queries, req.body.form)
 
+  log(queries)
+
   // Iterate through query parameters and filter dataset
   Object.keys(queries).forEach((key, index) => {
     users = users.filter(item => {
-      let name = item[key] ? item[key].toString().toLowerCase() : 'null'
+      let name = item[key] ? item[key].toString().toLowerCase() : null
       let value = queries[key].toLowerCase()
-      log({
-        queryValue: value,
-        name: name
-      })
+      // log({
+      //   queryValue: value,
+      //   name: name
+      // })
       return (name.includes(value))
     })
   })

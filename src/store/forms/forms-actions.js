@@ -3,7 +3,7 @@ import fetch from 'cross-fetch'
 import endpoints from '../../endpoints'
 
 // Form state action creator
-export function captureFormState(query, dispatch) {
+export function captureFormState (query, dispatch) {
   dispatch({
     type: actionTypes.FORM,
     form: { ...query }
@@ -11,9 +11,7 @@ export function captureFormState(query, dispatch) {
 }
 
 // Form submission
-export function sendForm(form, dispatch) {
-  console.log({ ...form })
-
+export function sendForm (form, dispatch) {
   fetch(endpoints.users, {
     method: 'POST',
     headers: {
@@ -25,7 +23,12 @@ export function sendForm(form, dispatch) {
   })
     .then(data => data.json())
     .then(data => {
-      console.log(data)
+      // Results action
+      dispatch({
+        type: actionTypes.RESULTS,
+        results: {
+          ...data
+        }
+      })
     })
-
 }

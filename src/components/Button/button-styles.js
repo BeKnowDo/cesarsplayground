@@ -15,6 +15,8 @@ const ScButton = styled.button`
     cursor: pointer;
     transition: background-color .2s ease-out, color .2s ease-out;
     background-color: ${colors.lime};
+    border: ${borders.focus};
+    color: ${colors.black};
   }
 
   &:focus {

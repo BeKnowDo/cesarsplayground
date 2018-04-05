@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { borders } from '../../styles/variables'
+import { borders } from '../../../styles/variables'
 
 const ScForm = styled.form`
   padding: 10px;

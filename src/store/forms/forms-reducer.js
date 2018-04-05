@@ -18,4 +18,5 @@ const form = (state = defaultState, action) => {
       return state
   }
 }
+
 export default form
