@@ -9,7 +9,6 @@ import Label from '../Label'
 class Search extends PureComponent {
   render () {
     const form = this.props.form
-    console.log(form)
 
     return (
       <ScForm onSubmit={(e) => {
@@ -17,22 +16,22 @@ class Search extends PureComponent {
       }}>
         <div>
           <Label
-            for='firstName'
+            for='firstname'
             text='First Name'
           />
           <Input
-            id='firstName'
+            id='firstname'
             placeholder='First Name'
             onChange={this.props.handleChange}
           />
         </div>
         <div>
           <Label
-            for='lastName'
+            for='lastname'
             text='Last Name'
           />
           <Input
-            id='lastName'
+            id='lastname'
             placeholder='Last Name'
             onChange={this.props.handleChange}
           />

@@ -1,7 +1,7 @@
 require('dotenv').load()
 const chalk = require('chalk')
 const express = require('express')
-
+const bodyParser = require('body-parser')
 const errorNotification = chalk.bgYellow.red
 const logNotification = chalk.bgKeyword('white').keyword('red')
 const env = process.env
@@ -12,6 +12,8 @@ const users = require('./routes/users')
 
 // Initialize our express server
 const app = express()
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 // Catch errors
 app.use(function (err, req, res, next) {

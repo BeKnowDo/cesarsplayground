@@ -12,6 +12,7 @@ const routes = [
   },
   {
     path: '/disclaimer',
+    exact: 'exact',
     component: Disclaimer
   },
   {
