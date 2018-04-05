@@ -1,6 +1,7 @@
-import { actionTypes } from '../action-types'
 import fetch from 'cross-fetch'
+import { actionTypes } from '../action-types'
 import endpoints from '../../endpoints'
+import {results} from '../results/results-actions'
 
 // Form state action creator
 export function captureFormState (query, dispatch) {
@@ -24,11 +25,6 @@ export function sendForm (form, dispatch) {
     .then(data => data.json())
     .then(data => {
       // Results action
-      dispatch({
-        type: actionTypes.RESULTS,
-        results: {
-          ...data
-        }
-      })
+      results(data, dispatch)
     })
 }

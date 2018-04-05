@@ -6,7 +6,7 @@ const colors = {
   red: '#F8170C',
   tan: '#DBC998',
   grey: '#49496A',
-  greyLight: '##80939a',
+  greyLight: '#80939a',
   green: '#88C425',
   lime: '#D2FB78'
 }
@@ -17,6 +17,7 @@ const shadows = {
 
 const borders = {
   grey: '1px solid rgba(3,3,3,.1)',
+  white: '1px solid rgba(255,255,255, 1)',
   focus: '1px solid rgba(3,3,3,.6)',
   error: `'border-color:' ${colors.red}`
 }

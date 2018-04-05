@@ -4,7 +4,7 @@ const defaultState = {
   form: {}
 }
 
-const form = (state = defaultState, action) => {
+const forms = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.FORM:
       return {
@@ -19,4 +19,4 @@ const form = (state = defaultState, action) => {
   }
 }
 
-export default form
+export default forms

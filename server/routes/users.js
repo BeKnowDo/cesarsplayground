@@ -17,8 +17,6 @@ router.post('/users', (req, res) => {
   let queries = {}
   queries = Object.assign(queries, req.body.form)
 
-  log(queries)
-
   // Iterate through query parameters and filter dataset
   Object.keys(queries).forEach((key, index) => {
     users = users.filter(item => {

@@ -11,8 +11,8 @@ import { routes, RouteComponent } from './routes'
 import registerServiceWorker from './registerServiceWorker'
 
 injectGlobal`
-  body {
-    font-family: ${typography.fontFamily}
+  html, body {
+    font-family: ${typography.fontFamily};
   }
 `
 

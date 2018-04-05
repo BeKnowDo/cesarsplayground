@@ -8,11 +8,11 @@ import Label from '../../Label'
 
 class Search extends PureComponent {
   render () {
-    const form = this.props.form
+    const forms = this.props.forms
 
     return (
       <ScForm onSubmit={(e) => {
-        this.props.handleSubmit(e, form)
+        this.props.handleSubmit(e, forms)
       }}>
         <div>
           <Label

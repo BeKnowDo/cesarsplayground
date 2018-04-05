@@ -2,16 +2,25 @@ import React, { PureComponent } from 'react'
 import ScResults from './results-styles'
 
 class Results extends PureComponent {
-  buildList (props) {
+  buildList(list) {
     return (
       <ScResults>
-        testing
+        {list.map((item, key) => {
+          console.log(item)
+          return (
+            <li key={key}>
+              {item.firstname}
+            </li>
+          )
+        })}
       </ScResults>
     )
   }
-  render () {
+  render() {
+    const list = this.props.results
+    console.log(list)
     return (
-      (this.props.results > 0) ? this.buildList(this.props) : null
+      (list !== undefined) ? this.buildList(list) : null
     )
   }
 }

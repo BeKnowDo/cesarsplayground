@@ -17,7 +17,7 @@ class Home extends Component {
       <Fragment>
         <Header text='Search Users' />
         <Search {...this.props} />
-        <Results {...this.props} />
+        <Results {...this.props.results} />
       </Fragment>
     )
   }
@@ -25,7 +25,7 @@ class Home extends Component {
 
 function mapStateToProps (state) {
   return {
-    form: { ...state.forms },
+    forms: { ...state.forms },
     results: { ...state.results }
   }
 }

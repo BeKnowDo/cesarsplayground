@@ -7,16 +7,16 @@ const ScButton = styled.button`
   color: ${colors.white};
   padding: ${padding.button};
   transition: background-color .2s ease-in , color .2s ease-in;
-  background-color: ${colors.green};
+  background-color: ${colors.greyLight};
   width: 100%;
   margin-top: 20px;
   
   &:hover {
     cursor: pointer;
     transition: background-color .2s ease-out, color .2s ease-out;
-    background-color: ${colors.lime};
+    background-color: ${colors.black};
     border: ${borders.focus};
-    color: ${colors.black};
+    color: ${colors.white};
   }
 
   &:focus {
