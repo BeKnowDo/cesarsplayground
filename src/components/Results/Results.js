@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import ScResults from './results-styles'
 
 class Results extends PureComponent {
-  buildList(list) {
+  buildList (list) {
     return (
       <ScResults>
         {list.map((item, key) => {
@@ -16,11 +16,10 @@ class Results extends PureComponent {
       </ScResults>
     )
   }
-  render() {
-    const list = this.props.results
-    console.log(list)
+  render () {
+    const list = this.props.results || null
     return (
-      (list !== undefined) ? this.buildList(list) : null
+      (list !== null) ? this.buildList(list) : null
     )
   }
 }

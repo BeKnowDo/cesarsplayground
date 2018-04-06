@@ -12,5 +12,4 @@ const results = (state = [], action) => {
       return state
   }
 }
-
 export default results

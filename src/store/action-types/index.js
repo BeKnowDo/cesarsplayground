@@ -6,5 +6,6 @@ export const actionTypes = {
   FORM: 'FORM',
   ERROR: 'ERROR',
   NO_RESULTS: 'NO_RESULTS',
+  NOTIFICATION: 'NOTIFICATION',
   RESULTS: 'RESULTS'
 }

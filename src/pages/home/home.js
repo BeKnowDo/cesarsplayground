@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Header from '../../components/Header'
 import Search from '../../components/Forms/Search'
 import Results from '../../components/Results'
-
+import Notification from '../../components/Notification'
 // Action creators
 import {
   captureFormState,
@@ -18,6 +18,7 @@ class Home extends Component {
         <Header text='Search Users' />
         <Search {...this.props} />
         <Results {...this.props.results} />
+        <Notification {...this.props.notification} />
       </Fragment>
     )
   }

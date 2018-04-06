@@ -1,10 +1,11 @@
 import { actionTypes } from '../action-types'
 
 // Results list action creator
-export function results (data, dispatch) {
-  console.log(data)
+const results = (data, dispatch) => {
   dispatch({
     type: actionTypes.RESULTS,
     results: data
   })
 }
+
+export default results
