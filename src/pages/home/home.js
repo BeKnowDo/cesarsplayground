@@ -8,7 +8,8 @@ import Notification from '../../components/Notification'
 // Action creators
 import {
   captureFormState,
-  sendForm
+  sendForm,
+  clearFormState
 } from '../../store/forms/forms-actions'
 
 class Home extends Component {
@@ -33,7 +34,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    handleChange: e => {
+    onChange: e => {
       // We're going to dynamically create objects that will
       // contain a given input field's id and value
       // We'll use the id as the 'key' for the object and assign
@@ -41,13 +42,15 @@ function mapDispatchToProps (dispatch) {
       // This avoids having to manually mapping or creating these in the redux store
       // This is now one of the longest comments I've ever made
       let query = {}
-      const values = e.target ? e.target.value : ''
-      const key = values !== null ? e.target.id : null
+      const value = e.target ? e.target.value : null
+      const key = value !== null ? e.target.id : null
 
-      if (values !== null && key !== null) {
-        query[key] = values
+      if (value === '') {
+        clearFormState(dispatch)
+      } else if (value !== null && key !== null) {
+        query[key] = value
 
-        captureFormState({
+        return captureFormState({
           ...query
         }, dispatch)
       }

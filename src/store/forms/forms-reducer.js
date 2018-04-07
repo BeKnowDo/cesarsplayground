@@ -14,6 +14,12 @@ const forms = (state = defaultState, action) => {
           ...action.form
         }
       }
+    case actionTypes.CLEAR_FORM:
+      console.log(action)
+      return {
+        ...state,
+        form: undefined
+      }
     default:
       return state
   }

@@ -4,6 +4,7 @@
 export const actionTypes = {
   LOADER: 'LOADER',
   FORM: 'FORM',
+  CLEAR_FORM: 'CLEAR_FORM',
   ERROR: 'ERROR',
   NO_RESULTS: 'NO_RESULTS',
   NOTIFICATION: 'NOTIFICATION',

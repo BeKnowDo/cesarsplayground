@@ -11,6 +11,12 @@ export function captureFormState (query, dispatch) {
   })
 }
 
+export function clearFormState (dispatch) {
+  dispatch({
+    type: actionTypes.CLEAR_FORM
+  })
+}
+
 // Form submission
 export function sendForm (form, dispatch) {
   fetch(endpoints.users, {

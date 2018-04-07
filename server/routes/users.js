@@ -11,11 +11,18 @@ const router = express.Router()
 
 // Now declare our routes
 router.post('/users', (req, res) => {
-  let users = JSON.parse(fs.readFileSync(usersData, 'utf-8'))
-
   // Create query object
   let queries = {}
   queries = Object.assign(queries, req.body.form)
+
+  if (Object.keys(queries).length <= 0) {
+    return res.json({
+      error: 'Empty Results'
+    })
+  }
+
+  // Read dummy data
+  let users = JSON.parse(fs.readFileSync(usersData, 'utf-8'))
 
   // Iterate through query parameters and filter dataset
   Object.keys(queries).forEach((key, index) => {
@@ -31,13 +38,13 @@ router.post('/users', (req, res) => {
   })
 
   if (users.length <= 0) {
-    users = {
+    return res.json({
       error: 'Empty Results'
-    }
+    })
+  } else {
+    // log(users.length)
+    return res.json(users)
   }
-
-  // log(users.length)
-  res.json(users)
 })
 
 module.exports = router

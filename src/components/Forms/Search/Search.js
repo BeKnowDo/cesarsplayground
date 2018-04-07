@@ -22,7 +22,7 @@ class Search extends PureComponent {
           <Input
             id='firstname'
             placeholder='First Name'
-            onChange={this.props.handleChange}
+            onChange={this.props.onChange}
           />
         </div>
         <div>
@@ -33,7 +33,7 @@ class Search extends PureComponent {
           <Input
             id='lastname'
             placeholder='Last Name'
-            onChange={this.props.handleChange}
+            onChange={this.props.onChange}
           />
         </div>
         <Button text='Search' />
