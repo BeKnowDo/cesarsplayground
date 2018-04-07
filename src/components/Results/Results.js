@@ -6,7 +6,6 @@ class Results extends PureComponent {
     return (
       <ScResults>
         {list.map((item, key) => {
-          console.log(item)
           return (
             <li key={key}>
               {item.firstname}
