@@ -1,5 +1,7 @@
 import React, {Fragment} from 'react'
 import Button from '../../components/Button'
+import Label from '../../components/Label'
+import Input from '../../components/Input'
 
 const UserProfile = props => {
   const user = props.location.state ? props.location.state : null
@@ -11,7 +13,7 @@ const UserProfile = props => {
     return (
       <Fragment>
         <div>
-          First Name: {user.firstname}
+          <Label text='First Name' />
         </div>
         <div>
           Last Name: {user.lastname}

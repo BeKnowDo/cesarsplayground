@@ -67,7 +67,7 @@ class Results extends PureComponent {
 
     if (list !== null) {
       if (Object.keys(list).length <= 0) {
-        console.log('temp')
+        return this.showEmptyMessage()
       }
     }
 
