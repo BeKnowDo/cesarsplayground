@@ -10,33 +10,43 @@ class Search extends PureComponent {
   render () {
     const forms = this.props.forms
 
+    const isEnabled = Object.keys(forms.form).length > 0
+
+    const formFields = [
+      {
+        id: 'firstname',
+        placeholder: 'First Name',
+        onChange: this.props.onChange
+      },
+      {
+        id: 'lastname',
+        placeholder: 'Last Name',
+        onChange: this.props.onChange
+      }
+    ]
+
     return (
       <ScForm onSubmit={(e) => {
         this.props.handleSubmit(e, forms)
       }}>
-        <div>
-          <Label
-            for='firstname'
-            text='First Name'
-          />
-          <Input
-            id='firstname'
-            placeholder='First Name'
-            onChange={this.props.onChange}
-          />
-        </div>
-        <div>
-          <Label
-            for='lastname'
-            text='Last Name'
-          />
-          <Input
-            id='lastname'
-            placeholder='Last Name'
-            onChange={this.props.onChange}
-          />
-        </div>
-        <Button text='Search' />
+        {formFields.map((item, index) => {
+          return (
+            <div key={index}>
+              <Label
+                for={item.id}
+                text={item.placeholder}
+              />
+              <Input
+                id={item.id}
+                placeholder={item.placeholder}
+                onChange={item.onChange}
+              />
+            </div>
+          )
+        })}
+
+        <Button disabled={!isEnabled} text='Search' />
+        <Button continue text='Continue' />
       </ScForm>
     )
   }

@@ -7,18 +7,28 @@ const ScButton = styled.button`
   color: ${colors.white};
   padding: ${padding.button};
   transition: background-color .2s ease-in , color .2s ease-in;
-  background-color: ${colors.greyLight};
-  width: 100%;
+
+  background-color: ${props => props.continue ? `${colors.blue}` : `${colors.greyLight}`};
   margin-top: 20px;
-  
+  width: 100%;
+
   &:hover {
     cursor: pointer;
     transition: background-color .2s ease-out, color .2s ease-out;
-    background-color: ${colors.black};
+    background-color: ${props => props.continue ? `${colors.lightBlue}` : `${colors.black}`};
     border: ${borders.focus};
     color: ${colors.white};
   }
+  &[disabled] {
+    cursor: not-allowed;
+  }    
 
+  ${props => props.negative ? `
+    background-color: ${colors.red};
+    color: ${colors.white};
+  `
+    : null
+} 
   &:focus {
     outline: none;
   }

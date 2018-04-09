@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Header from '../../components/Header'
 import Search from '../../components/Forms/Search'
 import Results from '../../components/Results'
-import Notification from '../../components/Notification'
+
 // Action creators
 import {
   captureFormState,
@@ -16,10 +16,9 @@ class Home extends Component {
   render () {
     return (
       <Fragment>
-        <Header text='Search Users' />
+        <Header text='Search For Existing Customer' />
         <Search {...this.props} />
         <Results {...this.props.results} />
-        <Notification {...this.props.notification} />
       </Fragment>
     )
   }
@@ -45,8 +44,8 @@ function mapDispatchToProps (dispatch) {
       const value = e.target ? e.target.value : null
       const key = value !== null ? e.target.id : null
 
-      if (value === '') {
-        clearFormState(dispatch)
+      if (value === '' && key !== null) {
+        clearFormState(key, dispatch)
       } else if (value !== null && key !== null) {
         query[key] = value
 

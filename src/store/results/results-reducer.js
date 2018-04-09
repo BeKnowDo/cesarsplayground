@@ -6,7 +6,7 @@ const results = (state = [], action) => {
     case actionTypes.RESULTS:
       return {
         ...state,
-        results: action.results
+        results: {...action.results}
       }
     default:
       return state

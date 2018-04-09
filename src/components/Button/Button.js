@@ -4,7 +4,7 @@ import ScButton from './button-styles'
 
 const Button = props => {
   return (
-    <ScButton>{props.text}</ScButton>
+    <ScButton {...props}>{props.text}</ScButton>
   )
 }
 
