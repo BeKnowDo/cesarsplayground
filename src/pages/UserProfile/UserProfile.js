@@ -1,7 +1,8 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import Button from '../../components/Button'
 import Label from '../../components/Label'
 import Input from '../../components/Input'
+import Header from '../../components/Header'
 
 const UserProfile = props => {
   const user = props.location.state ? props.location.state : null
@@ -12,34 +13,70 @@ const UserProfile = props => {
 
     return (
       <Fragment>
+        <Header text='User Details' />
         <div>
           <Label text='First Name' />
+          <Input placeholder={user.firstname} defaultValue={user.firstname} />
         </div>
         <div>
-          Last Name: {user.lastname}
+          <Label text='Last Name' />
+          <Input placeholder={user.lastname} defaultValue={user.lastname} />
         </div>
         <div>
-          SSN: {user.ssn}
+          <Label text='SSN' />
+          <Input type='ssn' placeholder={user.ssn} defaultValue={user.ssn} />
         </div>
         <div>
-          Salary: {user.salary}
+          <Label text='Employment Status' />
+          <select>
+            <option value='employeed'>{user.employment ? 'Employed' : 'Unknown'}</option>
+          </select>
+        </div>
+
+        <div>
+          <Header text='Primary Address Details' />
         </div>
         <div>
-          Employed: {user.employment ? 'Yes' : 'No'}
+          <Label text='Street' />
+          <Input placeholder={primary.street} defaultValue={primary.street} />
+        </div>
+
+        <div>
+          <Label text='City' />
+          <Input placeholder={primary.city} defaultValue={primary.city} />
+        </div>
+
+        <div>
+          <Label text='State' />
+          <select>
+            <option value={primary.state}>{primary.state}</option>
+          </select>
         </div>
         <div>
-          <h2>Mailing Address Details</h2>
-          <p>Street: {mailing.street}</p>
-          <p>City: {mailing.city}</p>
-          <p>State: {mailing.state}</p>
-          <p>Zip Code:{mailing.zipcode}</p>
+          <Label text='Zip Code' />
+          <Input placeholder={primary.zipcode} defaultValue={primary.zipcode} />
+        </div>
+
+        <div>
+          <Header text='Mailing Address Details' />
+          <p>
+            <Label text='Street' />
+            <Input placeholder={mailing.street} defaultValue={mailing.street} />
+          </p>
         </div>
         <div>
-          <h2>Primary Address Details</h2>
-          <p>Street: {primary.street}</p>
-          <p>City: {primary.city}</p>
-          <p>State: {primary.state}</p>
-          <p>Zip Code:{primary.zipcode}</p>
+          <Label text='City' />
+          <Input placeholder={mailing.city} defaultValue={mailing.city} />
+        </div>
+        <div>
+          <Label text='State' />
+          <select>
+            <option value={mailing.state}>{mailing.state}</option>
+          </select>
+        </div>
+        <div>
+          <Label text='Zip Code' />
+          <Input placeholder={mailing.zipcode} defaultValue={mailing.zipcode} />
         </div>
 
         <Button continue text='Add a Companion' />

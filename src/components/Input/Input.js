@@ -13,7 +13,7 @@ Input.defaultProps = {
 }
 
 Input.propTypes = {
-  placeholder: PropTypes.string
+  placeholder: PropTypes.any
 }
 
 export default Input
