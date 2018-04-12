@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, borders, padding } from '../../styles/'
+import { colors, borders } from '../../styles/'
 
 export const ScResults = styled.div`
   color: ${colors.grey};

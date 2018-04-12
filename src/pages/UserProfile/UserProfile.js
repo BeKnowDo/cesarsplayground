@@ -14,18 +14,22 @@ const UserProfile = props => {
     return (
       <Fragment>
         <Header text='User Details' />
+
         <div>
           <Label text='First Name' />
           <Input placeholder={user.firstname} defaultValue={user.firstname} />
         </div>
+
         <div>
           <Label text='Last Name' />
           <Input placeholder={user.lastname} defaultValue={user.lastname} />
         </div>
+
         <div>
           <Label text='SSN' />
           <Input type='ssn' placeholder={user.ssn} defaultValue={user.ssn} />
         </div>
+
         <div>
           <Label text='Employment Status' />
           <select>
@@ -33,9 +37,8 @@ const UserProfile = props => {
           </select>
         </div>
 
-        <div>
-          <Header text='Primary Address Details' />
-        </div>
+        <Header text='Primary Address Details' />
+
         <div>
           <Label text='Street' />
           <Input placeholder={primary.street} defaultValue={primary.street} />
@@ -52,6 +55,7 @@ const UserProfile = props => {
             <option value={primary.state}>{primary.state}</option>
           </select>
         </div>
+
         <div>
           <Label text='Zip Code' />
           <Input placeholder={primary.zipcode} defaultValue={primary.zipcode} />
@@ -64,16 +68,19 @@ const UserProfile = props => {
             <Input placeholder={mailing.street} defaultValue={mailing.street} />
           </p>
         </div>
+
         <div>
           <Label text='City' />
           <Input placeholder={mailing.city} defaultValue={mailing.city} />
         </div>
+
         <div>
           <Label text='State' />
           <select>
             <option value={mailing.state}>{mailing.state}</option>
           </select>
         </div>
+
         <div>
           <Label text='Zip Code' />
           <Input placeholder={mailing.zipcode} defaultValue={mailing.zipcode} />
@@ -81,9 +88,7 @@ const UserProfile = props => {
 
         <Button continue text='Add a Companion' />
         <Button negative='true' text='Continue without Companion' />
-        <Button text='Go Back'
-          onClick={props.history.goBack}
-        >Back</Button>
+        <Button text='Go Back' onClick={props.history.goBack} />
       </Fragment>
     )
   } else {
