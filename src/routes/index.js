@@ -1,36 +1,59 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Home from '../pages/Home'
+
+import Master from '../layouts/Master'
+import Search from '../pages/Search'
 import Disclaimer from '../pages/Disclaimer'
 import NotFound from '../pages/404'
 import UserProfile from '../pages/UserProfile'
+import ProductSelection from '../pages/ProductSelection'
+
+const routeNames = {
+  PRODUCTS: { name: 'Products', to: '/' },
+  DISCLAMIER: { name: 'Disclaimer', to: '/disclaimer' },
+  SEARCH: { name: 'Search', to: '/search' },
+  PROFILE: { name: 'Profile', to: '/user-profile/:id' }
+}
 
 const routes = [
   {
-    path: '/',
+    path: routeNames.DISCLAMIER.to,
     exact: 'exact',
-    component: Home
+    component: Disclaimer,
+    name: routeNames.DISCLAMIER.name
   },
   {
-    path: '/disclaimer',
+    path: routeNames.PRODUCTS.to,
     exact: 'exact',
-    component: Disclaimer
+    component: ProductSelection,
+    name: routeNames.PRODUCTS.name
   },
   {
-    path: '/user-profile/:id',
+    path: routeNames.SEARCH.to,
     exact: 'exact',
-    component: UserProfile
+    component: Search,
+    name: routeNames.SEARCH.name
+  },
+  {
+    path: routeNames.PROFILE.to,
+    exact: 'exact',
+    component: UserProfile,
+    name: routeNames.PROFILE.name
   },
   {
     component: NotFound
   }
 ]
 
-const RouteComponent = route => (<Route
-  path={route.path}
-  render={props => (
-    <route.component {...props} routes={route.routes} />
-  )}
-/>)
+const RouteComponent = route => (
+  <Master>
+    <Route
+      path={route.path}
+      render={props => (
+        <route.component {...props} routes={route.routes} />
+      )}
+    />
+  </Master>
+)
 
-export { routes, RouteComponent }
+export { routes, routeNames, RouteComponent }

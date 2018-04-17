@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import DisclaimerForm from '../../components/Forms/DisclaimerForm'
 
 class Disclaimer extends Component {
   render () {
     return (
-      <div>
-        Disclaimer Form
-      </div>
+      <Fragment>
+        <DisclaimerForm />
+      </Fragment>
     )
   }
 }

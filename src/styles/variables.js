@@ -31,6 +31,7 @@ const typography = {
 
 const padding = {
   inputs: '8px',
+  selects: '8px',
   button: '8px',
   form: '14px'
 }

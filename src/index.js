@@ -13,6 +13,8 @@ import registerServiceWorker from './registerServiceWorker'
 injectGlobal`
   html, body {
     font-family: ${typography.fontFamily};
+    margin: 0;
+    padding: 0;
   }
 `
 

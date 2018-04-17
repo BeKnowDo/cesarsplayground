@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 
 // Action creators
-import ScForm from './search-styles'
+import ScForm from './styles'
 import Input from '../../Input'
 import Button from '../../Button'
 import Label from '../../Label'
@@ -10,7 +10,6 @@ import {userSearch} from '../../../forms/user-search'
 class Search extends PureComponent {
   render () {
     const forms = this.props.forms
-
     const isEnabled = Object.keys(forms.form).length > 0
 
     return (

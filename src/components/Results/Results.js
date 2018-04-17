@@ -63,7 +63,8 @@ class Results extends PureComponent {
     )
   }
   render () {
-    const list = this.props.results || null
+    const initialSearch = this.props.initialSearch
+    const list = this.props.users || null
 
     if (list !== null) {
       if (Object.keys(list).length <= 0) {
@@ -72,7 +73,7 @@ class Results extends PureComponent {
     }
 
     return (
-      (list !== null) ? this.buildList(list) : this.showEmptyMessage()
+      (list !== null && initialSearch !== false) ? this.buildList(list) : this.showEmptyMessage()
     )
   }
 }

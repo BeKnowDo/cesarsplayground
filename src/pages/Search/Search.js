@@ -1,9 +1,14 @@
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router'
 
+// Components
 import Header from '../../components/Header'
-import Search from '../../components/Forms/Search'
+import UserSearch from '../../components/Forms/UserSearch'
 import Results from '../../components/Results'
+
+// Route names
+import { routeNames } from '../../routes'
 
 // Action creators
 import {
@@ -12,22 +17,28 @@ import {
   clearFormState
 } from '../../store/forms/forms-actions'
 
-class Home extends Component {
+// Search
+class Search extends PureComponent {
   render () {
-    return (
-      <Fragment>
-        <Header text='Search For Existing Customer' />
-        <Search {...this.props} />
-        <Results {...this.props.results} />
-      </Fragment>
-    )
+    if (this.props.products.productsDisclaimer === false) {
+      return <Redirect to={routeNames.DISCLAMIER.to} />
+    } else {
+      return (
+        <Fragment>
+          <Header text='Search For Existing Customer' />
+          <UserSearch {...this.props} />
+          <Results {...this.props.customerResults} />
+        </Fragment>
+      )
+    }
   }
 }
 
 function mapStateToProps (state) {
   return {
     forms: { ...state.forms },
-    results: { ...state.results }
+    customerResults: { ...state.customerResults },
+    products: {...state.productSelections}
   }
 }
 
@@ -64,4 +75,4 @@ function mapDispatchToProps (dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(Search)

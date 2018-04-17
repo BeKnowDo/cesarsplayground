@@ -1,7 +1,7 @@
 import fetch from 'cross-fetch'
 import { actionTypes } from '../action-types'
 import endpoints from '../../endpoints'
-import { results, emptyResults } from '../results/results-actions'
+import { customerResults, emptyCustomerResults } from '../customer-search/customer-search-actions'
 import notification from '../notification/notification-actions'
 // Form state action creator
 export function captureFormState (query, dispatch) {
@@ -35,10 +35,10 @@ export function sendForm (form, dispatch) {
     .then(data => {
       // Results action
       if (data.error) {
-        emptyResults(data, dispatch)
+        emptyCustomerResults(data, dispatch)
         notification(data, dispatch)
       } else {
-        results(data, dispatch)
+        customerResults(data, dispatch)
       }
     })
 }
