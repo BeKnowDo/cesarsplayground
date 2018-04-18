@@ -5,7 +5,7 @@ const DisclaimerForm = props => {
     <ScForm>
       <h2>Please accept the following disclaimer:</h2>
       <p>
-        <input type='checkbox' id='disclaimer' />
+        <input type='checkbox' id='disclaimer' checked={props.disclaimer} onChange={props.onChange} />
         <label htmlFor='disclaimer'>
           I agree to use this application responsibly and promise to not use it malicoiusly.
         </label>

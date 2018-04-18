@@ -1,8 +1,7 @@
 import { actionTypes } from '../action-types'
 
 const initialState = {
-  products: [],
-  productsDisclaimer: false
+  products: []
 }
 
 const productSelections = (state = initialState, action) => {
@@ -11,10 +10,6 @@ const productSelections = (state = initialState, action) => {
       return {
         ...state,
         products: [...action.products]
-      }
-    case actionTypes.PRODUCT_DISCLAIMER:
-      return {
-        productsDisclaimer: !action.accepted
       }
     default:
       return state

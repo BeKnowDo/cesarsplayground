@@ -1,6 +1,5 @@
 import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router'
 
 // Components
 import Header from '../../components/Header'
@@ -19,18 +18,21 @@ import {
 
 // Search
 class Search extends PureComponent {
-  render () {
-    if (this.props.products.productsDisclaimer === false) {
-      return <Redirect to={routeNames.DISCLAMIER.to} />
-    } else {
-      return (
-        <Fragment>
-          <Header text='Search For Existing Customer' />
-          <UserSearch {...this.props} />
-          <Results {...this.props.customerResults} />
-        </Fragment>
-      )
+  constructor (props) {
+    super(props)
+    if (this.props.disclaimer === false) {
+      this.props.history.push(routeNames.DISCLAMIER.to)
     }
+  }
+
+  render () {
+    return (
+      <Fragment>
+        <Header text='Search For Existing Customer' />
+        <UserSearch {...this.props} />
+        <Results {...this.props.customerResults} />
+      </Fragment>
+    )
   }
 }
 
@@ -38,7 +40,8 @@ function mapStateToProps (state) {
   return {
     forms: { ...state.forms },
     customerResults: { ...state.customerResults },
-    products: {...state.productSelections}
+    products: {...state.productSelections},
+    disclaimer: state.disclaimer.disclaimer
   }
 }
 

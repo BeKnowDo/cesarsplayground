@@ -1,14 +1,32 @@
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import DisclaimerForm from '../../components/Forms/DisclaimerForm'
+import { connect } from 'react-redux'
 
-class Disclaimer extends Component {
+import { toggleDisclaimerAcceptance } from '../../store/disclaimer/disclaimer-actions'
+
+class Disclaimer extends PureComponent {
   render () {
     return (
       <Fragment>
-        <DisclaimerForm />
+        <DisclaimerForm {...this.props} />
       </Fragment>
     )
   }
 }
+function mapStateToProps (state) {
+  return {
+    disclaimer: state.disclaimer.disclaimer
+  }
+}
 
-export default Disclaimer
+function mapDispatchToProps (dispatch) {
+  return {
+    onChange: e => {
+      const checked = e.target.checked
+      // console.log(checked)
+      toggleDisclaimerAcceptance(checked, dispatch)
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Disclaimer)

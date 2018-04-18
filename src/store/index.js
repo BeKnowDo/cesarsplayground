@@ -8,6 +8,7 @@ import customerResults from './customer-search/customer-search-reducer'
 import notification from './notification/notification-reducer'
 import userProfile from './user-profile/user-profile-reducer'
 import productSelections from './product-selections/product-selections-reducer'
+import disclaimer from './disclaimer/disclaimer-reducer'
 
 const reducerCollection = combineReducers({
   loader,
@@ -15,7 +16,8 @@ const reducerCollection = combineReducers({
   customerResults,
   notification,
   userProfile,
-  productSelections
+  productSelections,
+  disclaimer
 })
 
 export default () => {
