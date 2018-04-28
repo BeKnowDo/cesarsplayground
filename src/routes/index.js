@@ -9,8 +9,8 @@ import UserProfile from '../pages/UserProfile'
 import ProductSelection from '../pages/ProductSelection'
 
 const routeNames = {
-  PRODUCTS: { name: 'Products', to: '/' },
-  DISCLAMIER: { name: 'Disclaimer', to: '/disclaimer' },
+  PRODUCTS: { name: 'Products', to: '/products' },
+  DISCLAMIER: { name: 'Disclaimer', to: '/' },
   SEARCH: { name: 'Search', to: '/search' },
   PROFILE: { name: 'Profile', to: '/user-profile/:id' }
 }
@@ -26,7 +26,10 @@ const routes = [
     path: routeNames.PRODUCTS.to,
     exact: 'exact',
     component: ProductSelection,
-    name: routeNames.PRODUCTS.name
+    name: routeNames.PRODUCTS.name,
+    middleware: {
+
+    }
   },
   {
     path: routeNames.SEARCH.to,

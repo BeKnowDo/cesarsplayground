@@ -1,6 +1,6 @@
 import { actionTypes } from '../action-types'
 
-export const toggleDisclaimerAcceptance = (checked, dispatch) => {
+const toggleDisclaimerAcceptance = (checked, dispatch) => {
   dispatch(
     {
       type: actionTypes.PRODUCT_DISCLAIMER,
@@ -8,3 +8,5 @@ export const toggleDisclaimerAcceptance = (checked, dispatch) => {
     }
   )
 }
+
+export default toggleDisclaimerAcceptance

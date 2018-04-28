@@ -1,19 +1,43 @@
 import { actionTypes } from '../action-types'
 
 const initialState = {
-  products: []
+  products: [],
+  newProduct: {}
 }
 
-const productSelections = (state = initialState, action) => {
+const productsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.PRODUCT_SELECTIONS:
+    case actionTypes.ADD_PRODUCT:
       return {
         ...state,
-        products: [...action.products]
+        products: [
+          ...state.products,
+          {...action.newProduct}
+        ],
+        newProduct: undefined
       }
+
+    case actionTypes.PRODUCT_ALIAS:
+      return {
+        ...state,
+        newProduct: {
+          ...state.newProduct,
+          name: action.newProduct.name
+        }
+      }
+
+    case actionTypes.PRODUCT_TYPE:
+      return {
+        ...state,
+        newProduct: {
+          ...state.newProduct,
+          type: action.newProduct.type
+        }
+      }
+
     default:
       return state
   }
 }
 
-export default productSelections
+export default productsReducer

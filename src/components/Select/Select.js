@@ -1,5 +1,5 @@
 import React from 'react'
-import {ScSelect} from './styles'
+import ScSelect from './styles'
 
 const Select = props => {
   const options = props.options || [{
@@ -18,7 +18,7 @@ const Select = props => {
   }
 
   return (
-    <ScSelect>
+    <ScSelect {...props}>
       {buildOptions(options)}
     </ScSelect>
   )

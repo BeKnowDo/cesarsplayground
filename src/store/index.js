@@ -7,7 +7,7 @@ import forms from './forms/forms-reducer'
 import customerResults from './customer-search/customer-search-reducer'
 import notification from './notification/notification-reducer'
 import userProfile from './user-profile/user-profile-reducer'
-import productSelections from './product-selections/product-selections-reducer'
+import productsReducer from './product-selections/product-selections-reducer'
 import disclaimer from './disclaimer/disclaimer-reducer'
 
 const reducerCollection = combineReducers({
@@ -16,7 +16,7 @@ const reducerCollection = combineReducers({
   customerResults,
   notification,
   userProfile,
-  productSelections,
+  productsReducer,
   disclaimer
 })
 

@@ -6,8 +6,8 @@ const ScInput = styled.input`
   border-radius: 4px;
   color: ${colors.black};
   padding: ${padding.inputs};
-  width: 100%;
   box-sizing: border-box;
+  width: 100%;
   transition: border .2s ease-in;
   
   &:focus {

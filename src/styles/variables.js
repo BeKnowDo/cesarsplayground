@@ -31,9 +31,15 @@ const typography = {
 
 const padding = {
   inputs: '8px',
+  checkbox: '6px',
   selects: '8px',
   button: '8px',
   form: '14px'
+}
+
+const margin = {
+  inputs: '4px',
+  checkbox: '6px'
 }
 
 export {
@@ -41,5 +47,6 @@ export {
   typography,
   borders,
   shadows,
-  padding
+  padding,
+  margin
 }

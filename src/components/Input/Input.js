@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ScInput from './input-styles'
+import ScInput from './styles'
 
 const Input = props => {
   return (
@@ -13,7 +13,8 @@ Input.defaultProps = {
 }
 
 Input.propTypes = {
-  placeholder: PropTypes.any
+  placeholder: PropTypes.string,
+  value: PropTypes.string
 }
 
 export default Input

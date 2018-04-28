@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ScHeader from './header-styles'
+import ScHeader from './styles'
 
 const Header = props => {
   return (

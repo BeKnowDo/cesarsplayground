@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
-import { ScResults, ScResultsHeader } from './results-styles'
+import { ScResults, ScResultsHeader } from './styles'
 
 class Results extends PureComponent {
   handleClick (e) {

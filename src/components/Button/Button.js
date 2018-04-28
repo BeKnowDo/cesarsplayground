@@ -1,10 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ScButton from './button-styles'
+import ScButton from './styles'
 
 const Button = props => {
   return (
-    <ScButton {...props}>{props.text}</ScButton>
+    <ScButton
+      {...props}
+    >
+      {props.text}
+    </ScButton>
   )
 }
 

@@ -14,6 +14,7 @@ const Navigation = props => {
               if (item.name) {
                 return item
               }
+              return false
             })
 
             // iterate through each nav item and create react-router link

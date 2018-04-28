@@ -5,11 +5,10 @@ const ScButton = styled.button`
   border-radius: 4px;
   border: ${borders.grey};
   color: ${colors.white};
-  padding: ${padding.button};
+  padding: ${props => props.padding ? `${props.padding}` : `${padding.button}`};
   transition: background-color .2s ease-in , color .2s ease-in;
 
   background-color: ${props => props.continue ? `${colors.blue}` : `${colors.greyLight}`};
-  margin-top: 20px;
   width: 100%;
 
   &:hover {
@@ -21,14 +20,28 @@ const ScButton = styled.button`
   }
   &[disabled] {
     cursor: not-allowed;
-  }    
+  }
 
   ${props => props.negative ? `
     background-color: ${colors.red};
     color: ${colors.white};
   `
     : null
-} 
+}
+  ${props => props.continue ? `
+    background-color: ${colors.green};
+    color: ${colors.black};
+  `
+    : null
+}
+
+  ${props => props.addProduct ? `
+    background-color: ${colors.blue};
+    color: ${colors.white};
+  `
+    : null
+}
+
   &:focus {
     outline: none;
   }

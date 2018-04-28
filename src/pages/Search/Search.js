@@ -40,7 +40,7 @@ function mapStateToProps (state) {
   return {
     forms: { ...state.forms },
     customerResults: { ...state.customerResults },
-    products: {...state.productSelections},
+    products: {...state.productsReducer},
     disclaimer: state.disclaimer.disclaimer
   }
 }

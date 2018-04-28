@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ScLabel from './label-styles'
+import ScLabel from './styles'
 
 const Label = props => {
   return (
