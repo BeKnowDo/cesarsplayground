@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Flex, Box } from 'grid-styled'
+import { withFormik } from 'formik'
+import Yup from 'yup'
 
 // Import components
 import ScForm from './styles'
@@ -11,16 +13,32 @@ class Product extends PureComponent {
   constructor (props) {
     super(props)
     this.addProduct = this.addProduct.bind(this)
+    this.state = {
+      selection: {
+        type: '',
+        name: ''
+      }
+    }
   }
 
   addProduct (e) {
     e.preventDefault()
-    const product = (this.props.newProduct.name && this.props.newProduct.type) ? this.props.newProduct : undefined
-    console.log(product)
+    const product = (this.state.selection.name && this.state.selection.type) ? this.state.selection : undefined
     if (product) {
       this.props.addProduct(product)
+      this.resetForm()
     }
   }
+
+  resetForm () {
+    this.setState({
+      selection: {
+        name: '',
+        type: ''
+      }
+    })
+  }
+
   render () {
     const productOptions = [
       {
@@ -37,25 +55,41 @@ class Product extends PureComponent {
       }
     ]
 
-    const productAlias = this.props.newProduct ? this.props.newProduct.name : undefined
+    const productAlias = this.state.selection ? this.state.selection.name : undefined
+    const productType = this.state.selection ? this.state.selection.type : undefined
 
     return (
       <ScForm>
-        <div>
-          <Select
-            required
-            options={productOptions}
-            onChange={this.props.productType}
-          />
-          <Input
-            required
-            type='text'
-            value={productAlias || ''}
-            placeholder='Nickname for Product'
-            onChange={this.props.productAlias}
-          />
-        </div>
-
+        <Select
+          required
+          value={productType || ''}
+          options={productOptions}
+          onChange={e => {
+            const type = e.target ? e.target.value : ''
+            this.setState({
+              selection: {
+                ...this.state.selection,
+                type: type
+              }
+            })
+          }}
+        />
+        <Input
+          required
+          error
+          type='text'
+          value={productAlias || ''}
+          placeholder='Nickname for Product'
+          onChange={e => {
+            const name = e.target ? e.target.value : ''
+            this.setState({
+              selection: {
+                ...this.state.selection,
+                name: name
+              }
+            })
+          }}
+        />
         <Flex>
           <Box width={1 / 2} pt={2} pr={2}>
             <Button

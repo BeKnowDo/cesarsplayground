@@ -34,7 +34,12 @@ const padding = {
   checkbox: '6px',
   selects: '8px',
   button: '8px',
-  form: '14px'
+  form: '14px',
+  table: {
+    padding: '14px',
+    th: '8px 10px',
+    td: '8px 10px'
+  }
 }
 
 const margin = {

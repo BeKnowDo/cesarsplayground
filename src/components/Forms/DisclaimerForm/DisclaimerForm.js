@@ -5,7 +5,7 @@ import Checkbox from '../../Checkbox'
 const DisclaimerForm = props => {
   return (
     <ScForm>
-      <h2>Please accept the following disclaimer:</h2>
+      <h3>Please accept the following disclaimer:</h3>
       <div>
         <Checkbox
           type='checkbox'

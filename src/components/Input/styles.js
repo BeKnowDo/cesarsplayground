@@ -3,6 +3,7 @@ import {colors, borders, padding} from '../../styles/variables'
 
 const ScInput = styled.input`
   border: ${borders.grey};
+  ${props => props.error ? `${borders.error}` : null};
   border-radius: 4px;
   color: ${colors.black};
   padding: ${padding.inputs};

@@ -7,12 +7,14 @@ import Disclaimer from '../pages/Disclaimer'
 import NotFound from '../pages/404'
 import UserProfile from '../pages/UserProfile'
 import ProductSelection from '../pages/ProductSelection'
+import OverflowContainer from '../pages/Overflow'
 
 const routeNames = {
   PRODUCTS: { name: 'Products', to: '/products' },
   DISCLAMIER: { name: 'Disclaimer', to: '/' },
   SEARCH: { name: 'Search', to: '/search' },
-  PROFILE: { name: 'Profile', to: '/user-profile/:id' }
+  PROFILE: { name: 'Profile', to: '/user-profile/:id' },
+  OVERFLOW: { name: 'Overflow', to: '/overflow' }
 }
 
 const routes = [
@@ -27,9 +29,7 @@ const routes = [
     exact: 'exact',
     component: ProductSelection,
     name: routeNames.PRODUCTS.name,
-    middleware: {
-
-    }
+    middleware: {}
   },
   {
     path: routeNames.SEARCH.to,
@@ -42,6 +42,12 @@ const routes = [
     exact: 'exact',
     component: UserProfile,
     name: routeNames.PROFILE.name
+  },
+  {
+    path: routeNames.OVERFLOW.to,
+    exact: 'exact',
+    component: OverflowContainer,
+    name: routeNames.OVERFLOW.name
   },
   {
     component: NotFound

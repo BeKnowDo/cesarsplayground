@@ -5,5 +5,8 @@ const ScForm = styled.form`
   padding: 10px;
   border-radius: 4px;
   border: ${borders.white};
+  > div {
+    display: flex;
+  }
 `
 export default ScForm
