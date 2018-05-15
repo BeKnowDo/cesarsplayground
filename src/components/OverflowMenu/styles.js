@@ -1,8 +1,19 @@
 import styled from 'styled-components'
 import { borders, colors, shadows } from '../../styles'
 
-const ScOverflowIcon = styled.span`
+const ScOverflowIcon = styled.li`
   position: relative;
+  padding: 2px;
+
+  > span {
+    ${borders.radius};
+    padding: 0 4px;
+    font-weight: 400;
+    border: ${borders.grey};
+    box-sizing: content-box;
+    display: inline-block;
+  }
+
   &:hover {
     cursor: pointer;
   }

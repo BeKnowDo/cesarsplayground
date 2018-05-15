@@ -10,8 +10,8 @@ const ScOverflow = styled.div`
     overflow: hidden;
     padding: 10px;
     list-style-type: none;
-    max-width: 200px;
     margin: 0 auto;
+    align-items: center;
   }
 
   li {
@@ -26,6 +26,9 @@ const ScOverflow = styled.div`
     border-radius: 4px;
     background-color: lightblue;
     padding: 4px;
+    &:hover {
+
+    }
   }
 
   .pill > span {

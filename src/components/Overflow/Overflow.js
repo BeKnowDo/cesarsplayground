@@ -33,7 +33,9 @@ class Overflow extends Component {
           showOverflow: !this.state.showOverflow
         })
       }}>
+        <span>
         ...
+        </span>
       </ScOverflowIcon>
     )
   }
@@ -78,6 +80,7 @@ class Overflow extends Component {
 
   calculations () {
     const parentRef = this.parentElement
+
     if (parentRef) {
       const parentBounds = parentRef.getBoundingClientRect().left + 18
       const children = parentRef.children
@@ -121,8 +124,8 @@ class Overflow extends Component {
   }
 
   componentDidMount () {
-    this.handleResize()
     this.calculations()
+    this.handleResize()
   }
 
   visibleItems () {
@@ -146,7 +149,9 @@ class Overflow extends Component {
               })
             }
 
-            {this.buildMoreIcon()}
+            {
+              (this.state.hiddenItems.length > 0) ? this.buildMoreIcon() : null
+            }
 
           </ul>
         </Fragment>
@@ -155,17 +160,16 @@ class Overflow extends Component {
   }
 
   render () {
-    return <Fragment>
-      <ScOverflow>
-        {
-          this.state.visibleItems
-            ? this.visibleItems()
-            : (this.buildPills())
-        }
-
-        <OverflowMenu show={this.state.showOverflow} items={this.state.hiddenItems} />
-      </ScOverflow>
-    </Fragment>
+    return (
+      <Fragment>
+        <ScOverflow>
+          {this.state.visibleItems ? this.visibleItems() : this.buildPills()}
+          {
+            (this.state.hiddenItems.length > 0) ? <OverflowMenu show={this.state.showOverflow} items={this.state.hiddenItems} /> : null
+          }
+        </ScOverflow>
+      </Fragment>
+    )
   }
 }
 
