@@ -7,7 +7,7 @@ import Disclaimer from '../pages/Disclaimer'
 import NotFound from '../pages/404'
 import UserProfile from '../pages/UserProfile'
 import ProductSelection from '../pages/ProductSelection'
-import OverflowContainer from '../pages/Overflow'
+import OverflowContainer from '../pages/OverflowContainer'
 
 const routeNames = {
   PRODUCTS: { name: 'Products', to: '/products' },

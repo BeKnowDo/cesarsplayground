@@ -1,29 +1,59 @@
-import React, { Component } from 'react'
-
+import React, { Component, Fragment } from 'react'
+import ScOverflow from './styles'
+import OverflowMenu from '../../components/OverflowMenu'
+import { ScOverflowIcon } from '../OverflowMenu/styles'
 // Component
 class Overflow extends Component {
   constructor (props) {
     super(props)
     this.calculations = this.calculations.bind(this)
     this.state = {
-      width: null
+      hiddenItems: [],
+      visibileItems: []
     }
   }
 
-  buildPills (width) {
+  pillItem (item) {
+    return (
+      <li
+        key={item.id}
+        {...item}
+      >
+        <div className={`pill type-${item.status}`}>
+          <span title={`type-${item.value}`}>{`${item.value}`}</span>
+        </div>
+      </li>
+    )
+  }
+
+  buildMoreIcon () {
+    return (
+      <ScOverflowIcon onClick={() => {
+        this.setState({
+          showOverflow: !this.state.showOverflow
+        })
+      }}>
+        ...
+      </ScOverflowIcon>
+    )
+  }
+
+  buildPills () {
     const items = this.props.orders
-    width = this.state.width
 
     return (
       <ul
-        width={width}
         ref={el => {
           this.parentElement = el
         }}
       >
         {items.map((item, index) => {
           return (
-            <li key={item.id} index={index}>
+            <li
+              key={item.id}
+              index={index}
+              {...item}
+            >
               <div className={`pill type-${item.status}`}>
                 <span title={`type-${item.value}`}>{`${item.value}`}</span>
               </div>
@@ -49,43 +79,44 @@ class Overflow extends Component {
   calculations () {
     const parentRef = this.parentElement
     if (parentRef) {
-      // console.log(parentRef);
-      const parentWidth = parentRef.clientWidth
-      const parentBounds = parentRef.getBoundingClientRect()
+      const parentBounds = parentRef.getBoundingClientRect().left + 18
       const children = parentRef.children
-      const firstChildWidth = children[0].clientWidth
-
-      const maxChildrenAllowed = Math.floor(parentWidth / firstChildWidth) - 1
-      const tempWidth = parentWidth / firstChildWidth
+      const hiddenItems = []
+      const visibleItems = []
       console.clear()
+
+      // Loop through all pills
       for (let i = 0; i < children.length; i++) {
-        console.log({
-          x: children[i].getBoundingClientRect().x,
-          y: children[i].getBoundingClientRect().y,
-          left: children[i].getBoundingClientRect().left,
-          right: children[i].getBoundingClientRect().right
-        })
+        const childBounds = children[i].getBoundingClientRect().left
+        const status = children[i].attributes.status.value
+        const value = children[i].attributes.value.value
+        const details = children[i].attributes.details.value
+        const id = children[i].attributes.id.value
+
+        console.log({ childBounds, parentBounds })
+
+        // loop to determine which items are "out of bounds"
+        if (parentBounds >= childBounds) {
+          hiddenItems.push({
+            id: id,
+            status: status,
+            details: details,
+            value: value
+          })
+        } else {
+          visibleItems.push({
+            id: id,
+            status: status,
+            details: details,
+            value: value
+          })
+        }
       }
+
       this.setState({
-        width: parentWidth
+        hiddenItems: hiddenItems,
+        visibleItems: visibleItems
       })
-
-      console.log({
-        parentBounds,
-        x: parentBounds.x,
-        y: parentBounds.y,
-        left: parentBounds.left,
-        right: parentBounds.right
-      })
-
-      // console.log({
-      //   parentBounds,
-      //   parentWidth,
-      //   firstChildWidth,
-      //   children,
-      //   tempWidth,
-      //   maxChildrenAllowed
-      // });
     }
   }
 
@@ -94,13 +125,47 @@ class Overflow extends Component {
     this.calculations()
   }
 
+  visibleItems () {
+    const items = this.state.visibleItems
+    if (items.length > 0) {
+      return (
+        <Fragment>
+          <ul>
+            {
+              items.map((item, index) => {
+                return (
+                  <li
+                    key={item.id}
+                    {...item}
+                  >
+                    <div className={`pill type-${item.status}`}>
+                      <span title={`type-${item.value}`}>{`${item.value}`}</span>
+                    </div>
+                  </li>
+                )
+              })
+            }
+
+            {this.buildMoreIcon()}
+
+          </ul>
+        </Fragment>
+      )
+    }
+  }
+
   render () {
-    return (
-      <div className='pill-container'>
-        <h4>PILL CONTAINER</h4>
-        {this.buildPills(this.state.width)}
-      </div>
-    )
+    return <Fragment>
+      <ScOverflow>
+        {
+          this.state.visibleItems
+            ? this.visibleItems()
+            : (this.buildPills())
+        }
+
+        <OverflowMenu show={this.state.showOverflow} items={this.state.hiddenItems} />
+      </ScOverflow>
+    </Fragment>
   }
 }
 

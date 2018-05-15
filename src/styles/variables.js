@@ -19,7 +19,8 @@ const borders = {
   grey: '1px solid rgba(3,3,3,.1)',
   white: '1px solid rgba(255,255,255, 1)',
   focus: '1px solid rgba(3,3,3,.6)',
-  error: `'border-color:' ${colors.red}`
+  error: `'border-color:' ${colors.red}`,
+  radius: `border-radius: 4px`
 }
 
 const typography = {
