@@ -15,14 +15,9 @@ class Overflow extends Component {
 
   pillItem (item) {
     return (
-      <li
-        key={item.id}
-        {...item}
-      >
-        <div className={`pill type-${item.status}`}>
-          <span title={`type-${item.value}`}>{`${item.value}`}</span>
-        </div>
-      </li>
+      <div className={`pill type-${item.status}`}>
+        <span title={`type-${item.details}`}>{`${item.value}`}</span>
+      </div>
     )
   }
 
@@ -56,9 +51,7 @@ class Overflow extends Component {
               index={index}
               {...item}
             >
-              <div className={`pill type-${item.status}`}>
-                <span title={`type-${item.value}`}>{`${item.value}`}</span>
-              </div>
+              { this.pillItem(item) }
             </li>
           )
         })}
@@ -86,7 +79,7 @@ class Overflow extends Component {
       const children = parentRef.children
       const hiddenItems = []
       const visibleItems = []
-      console.clear()
+      // console.clear()
 
       // Loop through all pills
       for (let i = 0; i < children.length; i++) {
@@ -96,7 +89,7 @@ class Overflow extends Component {
         const details = children[i].attributes.details.value
         const id = children[i].attributes.id.value
 
-        console.log({ childBounds, parentBounds })
+        // console.log({ childBounds, parentBounds })
 
         // loop to determine which items are "out of bounds"
         if (parentBounds >= childBounds) {
@@ -163,7 +156,8 @@ class Overflow extends Component {
     return (
       <Fragment>
         <ScOverflow>
-          {this.state.visibleItems ? this.visibleItems() : this.buildPills()}
+          {
+            this.state.visibleItems ? this.visibleItems() : this.buildPills()}
           {
             (this.state.hiddenItems.length > 0) ? <OverflowMenu show={this.state.showOverflow} items={this.state.hiddenItems} /> : null
           }
